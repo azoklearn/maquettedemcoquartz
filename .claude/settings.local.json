@@ -11,7 +11,15 @@
       "Bash(git init:*)",
       "Bash(git remote:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(sed -n '568,575p' /Users/noanbarbelin/Desktop/demco/css/style.css)",
+      "Bash(sed -n '854,860p' /Users/noanbarbelin/Desktop/demco/css/style.css)",
+      "Bash(sed -n '996,1001p' /Users/noanbarbelin/Desktop/demco/css/style.css)",
+      "Bash(sed -n '207,237p' /Users/noanbarbelin/Desktop/demco/css/style.css)",
+      "Bash(sed -n '666,673p' /Users/noanbarbelin/Desktop/demco/css/style.css)",
+      "Bash(sed -n '484,496p' /Users/noanbarbelin/Desktop/demco/css/style.css)",
+      "Bash(sed -n '490,496p' /Users/noanbarbelin/Desktop/demco/css/style.css)"
     ]
   }
 }
