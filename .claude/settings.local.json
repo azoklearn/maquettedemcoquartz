@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i '' 's|https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700\\\\&family=Inter:wght@300;400;500;600\\\\&display=swap|https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1\\\\&family=Inter:wght@300;400;500;600\\\\&display=swap|g' \"$f\")",
+      "Bash(done)",
+      "Bash(ls /Users/noanbarbelin/Desktop/demco/*.jpg)",
+      "Bash(ls /Users/noanbarbelin/Desktop/demco/montre*.jpg)",
+      "Bash(cd:*)",
+      "Bash(git init:*)",
+      "Bash(git remote:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

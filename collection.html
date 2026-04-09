@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Collection — Demco Quartz | Montres de Luxe d'Occasion</title>
+  <meta name="description" content="Découvrez la collection Demco Quartz : Rolex, Omega, Cartier, Patek Philippe, Breitling, TAG Heuer. Authentifiées, garanties 24 mois."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/jpeg" href="logo.jpg"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    #modal-overlay { position: fixed; }
+    .modal { position: relative; }
+  </style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <img src="logo.jpg" class="preloader-logo" alt="Demco Quartz"/>
+  <div class="preloader-brand">Demco Quartz</div>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+  <div class="preloader-tagline">Excellence Horlogère · Bruxelles</div>
+</div>
+
+<div class="cursor"></div>
+
+<!-- HEADER -->
+<header class="header scrolled" id="header">
+  <a href="index.html" class="logo">
+    <img src="logo.jpg" class="logo-svg" alt="Demco Quartz"/>
+    <span class="logo-text">DEMCO QUARTZ</span>
+  </a>
+  <nav class="nav">
+    <a href="index.html">Accueil</a>
+    <a href="collection.html" class="active">Collection</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-chrome nav-cta">Acheter / Vendre</a>
+    <button id="cart-btn" class="cart-btn" aria-label="Panier">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <span class="cart-label">Panier</span>
+      <span class="cart-count">0</span>
+    </button>
+  </nav>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="mobile-nav">
+  <a href="index.html">Accueil</a>
+  <a href="collection.html">Collection</a>
+  <a href="a-propos.html">À propos</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-solid" style="margin-top:1rem">Acheter / Vendre</a>
+</nav>
+
+<!-- CART DRAWER -->
+<div id="cart-overlay" class="cart-overlay"></div>
+<aside id="cart-drawer" class="cart-drawer" aria-label="Panier">
+  <div class="cart-drawer-header">
+    <span class="cart-drawer-title">
+      Mon Panier
+      <span class="cart-count" style="margin-left:8px;display:inline-flex;width:20px;height:20px;font-size:0.65rem;">0</span>
+    </span>
+    <button id="cart-close-btn" class="cart-close-btn" aria-label="Fermer">✕</button>
+  </div>
+  <div id="cart-items-list" class="cart-items-list">
+    <p class="cart-empty-msg">Votre panier est vide.</p>
+  </div>
+  <div class="cart-drawer-footer">
+    <div class="cart-total-line">
+      <span class="cart-total-label">Total estimé</span>
+      <span class="cart-total-amount" id="cart-total-amount">€ 0</span>
+    </div>
+    <a href="paiement.html" class="btn btn-solid cart-checkout-btn">
+      Procéder à l'achat →
+    </a>
+    <p style="font-size:0.72rem;color:var(--text-secondary);text-align:center;line-height:1.5;">
+      Paiement sécurisé · Garantie 24 mois · Livraison DHL Express
+    </p>
+  </div>
+</aside>
+
+<!-- PAGE HERO -->
+<section class="page-hero dot-grid">
+  <p class="section-label" style="margin-bottom:0.8rem;">12 pièces disponibles · Mise à jour régulière</p>
+  <h1 class="page-hero-title">Notre Collection</h1>
+  <p class="page-hero-sub">Chaque montre est expertisée, authentifiée et garantie 24 mois</p>
+</section>
+
+<!-- COLLECTION PAGE -->
+<section class="collection-page">
+  <div class="collection-page-inner">
+
+    <!-- Filtres marques -->
+    <div class="filters reveal">
+      <button class="filter-btn active" data-filter="all">Toutes</button>
+      <button class="filter-btn" data-filter="rolex">Rolex</button>
+      <button class="filter-btn" data-filter="omega">Omega</button>
+      <button class="filter-btn" data-filter="cartier">Cartier</button>
+      <button class="filter-btn" data-filter="tagheuer">TAG Heuer</button>
+      <button class="filter-btn" data-filter="breitling">Breitling</button>
+      <button class="filter-btn" data-filter="patek">Patek Philippe</button>
+      <button class="filter-btn" data-filter="iwc">IWC</button>
+      <button class="filter-btn" data-filter="ap">Audemars Piguet</button>
+    </div>
+
+    <!-- Grille watches -->
+    <div class="collection-full-grid">
+
+      <!-- 1 : Rolex Submariner -->
+      <div class="watch-card watch-card-full reveal"
+           data-brand="rolex" data-ref="116610LN" data-model="Submariner Date · Acier"
+           data-year="2018" data-cond="Excellent" data-price="€ 8 900"
+           data-movement="Auto · Cal. 3135" data-casedia="40mm"
+           data-img="montre1.jpg">
+        <div class="watch-card-image">
+          <img src="montre1.jpg"
+               alt="Rolex Submariner" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Rolex</div>
+          <div class="watch-ref">REF. 116610LN</div>
+          <div class="watch-model">Submariner Date · Acier</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Excellent · 2018</span>
+            <span class="watch-price">€ 8 900</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="116610LN">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 2 : Omega Seamaster -->
+      <div class="watch-card watch-card-full reveal" data-delay="60"
+           data-brand="omega" data-ref="210.30.42.20.01.001" data-model="Seamaster 300M · Co-Axial"
+           data-year="2020" data-cond="Très bon" data-price="€ 4 200"
+           data-movement="Auto · Co-Axial Master" data-casedia="42mm"
+           data-img="montre2.jpg">
+        <div class="watch-card-image">
+          <img src="montre2.jpg"
+               alt="Omega Seamaster" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Omega</div>
+          <div class="watch-ref">REF. 210.30.42.20.01.001</div>
+          <div class="watch-model">Seamaster 300M · Co-Axial</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Très bon · 2020</span>
+            <span class="watch-price">€ 4 200</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="210.30.42.20.01.001">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 3 : Cartier Santos -->
+      <div class="watch-card watch-card-full reveal" data-delay="120"
+           data-brand="cartier" data-ref="WSSA0018" data-model="Santos Medium · Acier"
+           data-year="2019" data-cond="Excellent" data-price="€ 5 800"
+           data-movement="Auto · Cal. 1847 MC" data-casedia="39.8mm"
+           data-img="montre3.jpg">
+        <div class="watch-card-image">
+          <img src="montre3.jpg"
+               alt="Cartier Santos" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Cartier</div>
+          <div class="watch-ref">REF. WSSA0018</div>
+          <div class="watch-model">Santos Medium · Acier</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Excellent · 2019</span>
+            <span class="watch-price">€ 5 800</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="WSSA0018">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 4 : TAG Heuer Carrera -->
+      <div class="watch-card watch-card-full reveal" data-delay="0"
+           data-brand="tagheuer" data-ref="WBN2011.BA0639" data-model="Carrera Calibre 5 · Auto"
+           data-year="2017" data-cond="Bon état" data-price="€ 2 400"
+           data-movement="Auto · Cal. 5 (ETA 2824)" data-casedia="41mm"
+           data-img="montre4.jpg">
+        <div class="watch-card-image">
+          <img src="montre4.jpg"
+               alt="TAG Heuer Carrera" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">TAG Heuer</div>
+          <div class="watch-ref">REF. WBN2011.BA0639</div>
+          <div class="watch-model">Carrera Calibre 5 · Auto</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Bon état · 2017</span>
+            <span class="watch-price">€ 2 400</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="WBN2011.BA0639">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 5 : Breitling Navitimer -->
+      <div class="watch-card watch-card-full reveal" data-delay="60"
+           data-brand="breitling" data-ref="AB0121211B1P1" data-model="Navitimer 01 · Chronographe"
+           data-year="2021" data-cond="Excellent" data-price="€ 6 500"
+           data-movement="Auto · Cal. B01" data-casedia="46mm"
+           data-img="montre5.jpg">
+        <div class="watch-card-image">
+          <img src="montre5.jpg"
+               alt="Breitling Navitimer" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Breitling</div>
+          <div class="watch-ref">REF. AB0121211B1P1</div>
+          <div class="watch-model">Navitimer 01 · Chronographe</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Excellent · 2021</span>
+            <span class="watch-price">€ 6 500</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="AB0121211B1P1">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 6 : Rolex Datejust -->
+      <div class="watch-card watch-card-full reveal" data-delay="120"
+           data-brand="rolex" data-ref="126334" data-model="Datejust 41 · Jubilee"
+           data-year="2022" data-cond="Parfait" data-price="€ 9 200"
+           data-movement="Auto · Cal. 3235" data-casedia="41mm"
+           data-img="montre6.jpg">
+        <div class="watch-card-image">
+          <img src="montre6.jpg"
+               alt="Rolex Datejust" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Rolex</div>
+          <div class="watch-ref">REF. 126334</div>
+          <div class="watch-model">Datejust 41 · Jubilee</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Parfait · 2022</span>
+            <span class="watch-price">€ 9 200</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="126334">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 7 : Patek Philippe Calatrava -->
+      <div class="watch-card watch-card-full reveal" data-delay="0"
+           data-brand="patek" data-ref="5227G-001" data-model="Calatrava · Or blanc"
+           data-year="2016" data-cond="Excellent" data-price="€ 22 000"
+           data-movement="Auto · Cal. 324 S C" data-casedia="39mm"
+           data-img="montre7.jpg">
+        <div class="watch-card-image">
+          <img src="montre7.jpg"
+               alt="Patek Philippe Calatrava" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Patek Philippe</div>
+          <div class="watch-ref">REF. 5227G-001</div>
+          <div class="watch-model">Calatrava · Or blanc 18k</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Excellent · 2016</span>
+            <span class="watch-price">€ 22 000</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="5227G-001">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 8 : IWC Portugieser -->
+      <div class="watch-card watch-card-full reveal" data-delay="60"
+           data-brand="iwc" data-ref="IW371604" data-model="Portugieser Chronographe"
+           data-year="2019" data-cond="Très bon" data-price="€ 7 800"
+           data-movement="Auto · Cal. 89361" data-casedia="41mm"
+           data-img="montre8.jpg">
+        <div class="watch-card-image">
+          <img src="montre8.jpg"
+               alt="IWC Portugieser" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">IWC</div>
+          <div class="watch-ref">REF. IW371604</div>
+          <div class="watch-model">Portugieser Chronographe</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Très bon · 2019</span>
+            <span class="watch-price">€ 7 800</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="IW371604">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 9 : Audemars Piguet Royal Oak -->
+      <div class="watch-card watch-card-full reveal" data-delay="120"
+           data-brand="ap" data-ref="15400ST.OO.1220ST.01" data-model="Royal Oak · Grande Tapisserie"
+           data-year="2017" data-cond="Excellent" data-price="€ 28 500"
+           data-movement="Auto · Cal. 3120" data-casedia="41mm"
+           data-img="montre9.jpg">
+        <div class="watch-card-image">
+          <img src="montre9.jpg"
+               alt="Audemars Piguet Royal Oak" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Audemars Piguet</div>
+          <div class="watch-ref">REF. 15400ST.OO.1220ST.01</div>
+          <div class="watch-model">Royal Oak · Grande Tapisserie</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Excellent · 2017</span>
+            <span class="watch-price">€ 28 500</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="15400ST.OO.1220ST.01">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 10 : Rolex GMT-Master II Batman -->
+      <div class="watch-card watch-card-full reveal" data-delay="0"
+           data-brand="rolex" data-ref="116710BLNR" data-model="GMT-Master II · Batman"
+           data-year="2020" data-cond="Parfait" data-price="€ 14 200"
+           data-movement="Auto · Cal. 3186" data-casedia="40mm"
+           data-img="montre10.jpg">
+        <div class="watch-card-image">
+          <img src="montre10.jpg"
+               alt="Rolex GMT-Master II Batman" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Rolex</div>
+          <div class="watch-ref">REF. 116710BLNR</div>
+          <div class="watch-model">GMT-Master II · "Batman"</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Parfait · 2020</span>
+            <span class="watch-price">€ 14 200</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="116710BLNR">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 11 : Jaeger-LeCoultre Reverso -->
+      <div class="watch-card watch-card-full reveal" data-delay="60"
+           data-brand="jlc" data-ref="Q2438522" data-model="Reverso Classic · Acier"
+           data-year="2018" data-cond="Bon état" data-price="€ 6 800"
+           data-movement="Manuel · Cal. 822/2" data-casedia="45.6x27.4mm"
+           data-img="montre11.jpg">
+        <div class="watch-card-image">
+          <img src="montre11.jpg"
+               alt="Jaeger-LeCoultre Reverso" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Jaeger-LeCoultre</div>
+          <div class="watch-ref">REF. Q2438522</div>
+          <div class="watch-model">Reverso Classic · Acier</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Bon état · 2018</span>
+            <span class="watch-price">€ 6 800</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="Q2438522">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 12 : Panerai Luminor Marina -->
+      <div class="watch-card watch-card-full reveal" data-delay="120"
+           data-brand="panerai" data-ref="PAM00111" data-model="Luminor Marina · Acier"
+           data-year="2016" data-cond="Très bon" data-price="€ 3 900"
+           data-movement="Manuel · Cal. OP X" data-casedia="44mm"
+           data-img="montre12.jpg">
+        <div class="watch-card-image">
+          <img src="montre12.jpg"
+               alt="Panerai Luminor Marina" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Panerai</div>
+          <div class="watch-ref">REF. PAM00111</div>
+          <div class="watch-model">Luminor Marina · Acier</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Très bon · 2016</span>
+            <span class="watch-price">€ 3 900</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="PAM00111">Ajouter au panier</button>
+        </div>
+      </div>
+
+    </div><!-- /collection-full-grid -->
+  </div>
+</section>
+
+<!-- MODAL LIGHTBOX -->
+<div id="modal-overlay" class="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" aria-label="Fermer">✕</button>
+    <div class="modal-grid">
+      <div class="modal-image" id="modal-svg"></div>
+      <div class="modal-body">
+        <div class="modal-brand" id="modal-brand"></div>
+        <div class="modal-ref" id="modal-ref"></div>
+        <div class="modal-model" id="modal-model"></div>
+        <div class="modal-specs">
+          <div class="modal-spec">
+            <span class="modal-spec-label">Année</span>
+            <span class="modal-spec-value" id="modal-year"></span>
+          </div>
+          <div class="modal-spec">
+            <span class="modal-spec-label">État</span>
+            <span class="modal-spec-value" id="modal-cond"></span>
+          </div>
+          <div class="modal-spec">
+            <span class="modal-spec-label">Mouvement</span>
+            <span class="modal-spec-value" id="modal-movement"></span>
+          </div>
+          <div class="modal-spec">
+            <span class="modal-spec-label">Diamètre</span>
+            <span class="modal-spec-value" id="modal-casedia"></span>
+          </div>
+          <div class="modal-spec">
+            <span class="modal-spec-label">Garantie</span>
+            <span class="modal-spec-value">24 mois Demco Quartz</span>
+          </div>
+          <div class="modal-spec">
+            <span class="modal-spec-label">Livraison</span>
+            <span class="modal-spec-value">DHL Express assuré</span>
+          </div>
+        </div>
+        <div class="modal-price" id="modal-price"></div>
+        <div class="trusted-badge-sm" style="margin-bottom:1rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+          </svg>
+          Chrono24 Trusted Seller
+        </div>
+        <div class="modal-actions">
+          <button id="modal-cart-btn" class="btn btn-solid">Ajouter au panier</button>
+          <a href="contact.html" class="btn btn-outline">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer" style="margin-top:0">
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2024 DEMCO QUARTZ — Tous droits réservés · demcoquartz.com</p>
+      <div class="footer-legal">
+        <a href="index.html">Accueil</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Demco Quartz | Achat & Vente Montres de Luxe</title>
+  <meta name="description" content="Contactez Demco Quartz pour acheter ou vendre une montre de luxe. Bruxelles & Waterloo. Réponse sous 24h."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/jpeg" href="logo.jpg"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <img src="logo.jpg" class="preloader-logo" alt="Demco Quartz"/>
+  <div class="preloader-brand">Demco Quartz</div>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+  <div class="preloader-tagline">Excellence Horlogère · Bruxelles</div>
+</div>
+
+<div class="cursor"></div>
+
+<!-- HEADER -->
+<header class="header scrolled" id="header">
+  <a href="index.html" class="logo">
+    <img src="logo.jpg" class="logo-svg" alt="Demco Quartz"/>
+    <span class="logo-text">DEMCO QUARTZ</span>
+  </a>
+  <nav class="nav">
+    <a href="index.html">Accueil</a>
+    <a href="collection.html">Collection</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="contact.html" class="btn btn-chrome nav-cta">Acheter / Vendre</a>
+    <button id="cart-btn" class="cart-btn" aria-label="Panier">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <span class="cart-label">Panier</span>
+      <span class="cart-count">0</span>
+    </button>
+  </nav>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="mobile-nav">
+  <a href="index.html">Accueil</a>
+  <a href="collection.html">Collection</a>
+  <a href="a-propos.html">À propos</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-solid" style="margin-top:1rem">Acheter / Vendre</a>
+</nav>
+
+<!-- CART DRAWER -->
+<div id="cart-overlay" class="cart-overlay"></div>
+<aside id="cart-drawer" class="cart-drawer" aria-label="Panier">
+  <div class="cart-drawer-header">
+    <span class="cart-drawer-title">
+      Mon Panier
+      <span class="cart-count" style="margin-left:8px;display:inline-flex;width:20px;height:20px;font-size:0.65rem;">0</span>
+    </span>
+    <button id="cart-close-btn" class="cart-close-btn" aria-label="Fermer">✕</button>
+  </div>
+  <div id="cart-items-list" class="cart-items-list">
+    <p class="cart-empty-msg">Votre panier est vide.</p>
+  </div>
+  <div class="cart-drawer-footer">
+    <div class="cart-total-line">
+      <span class="cart-total-label">Total estimé</span>
+      <span class="cart-total-amount" id="cart-total-amount">€ 0</span>
+    </div>
+    <a href="paiement.html" class="btn btn-solid cart-checkout-btn">
+      Procéder à l'achat →
+    </a>
+    <p style="font-size:0.72rem;color:var(--text-secondary);text-align:center;line-height:1.5;">
+      Paiement sécurisé · Garantie 24 mois · Livraison DHL Express
+    </p>
+  </div>
+</aside>
+
+<!-- PAGE HERO -->
+<section class="page-hero dot-grid">
+  <p class="section-label" style="margin-bottom:0.8rem;">Réponse garantie sous 24h · Bruxelles &amp; Waterloo</p>
+  <h1 class="page-hero-title">Contactez-Nous</h1>
+  <p class="page-hero-sub">Une question, une expertise, une vente — nous sommes à votre écoute</p>
+</section>
+
+<!-- CONTACT SECTION -->
+<section style="padding:80px 2rem 100px;">
+  <div class="contact-section" style="padding:0;">
+
+    <div class="contact-grid">
+
+      <!-- FORMULAIRE -->
+      <div>
+        <h2 class="contact-form-title reveal">Envoyez-nous un message</h2>
+
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group reveal" data-delay="0">
+              <label class="form-label" for="nom">Nom complet *</label>
+              <input class="form-input" type="text" id="nom" name="nom" placeholder="Jean Dupont" data-required/>
+              <span class="form-error">Ce champ est requis.</span>
+            </div>
+            <div class="form-group reveal" data-delay="60">
+              <label class="form-label" for="email">Adresse email *</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="jean@exemple.com" data-required/>
+              <span class="form-error">Adresse email invalide.</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group reveal" data-delay="120">
+              <label class="form-label" for="tel">Téléphone</label>
+              <input class="form-input" type="tel" id="tel" name="tel" placeholder="+32 470 000 000"/>
+              <span class="form-error">Numéro de téléphone invalide.</span>
+            </div>
+            <div class="form-group reveal" data-delay="180">
+              <label class="form-label" for="objet">Objet *</label>
+              <select class="form-select" id="objet" name="objet" data-required>
+                <option value="">Choisir un sujet...</option>
+                <option value="achat">Acheter une montre</option>
+                <option value="vente">Vendre une montre</option>
+                <option value="expertise">Demande d'expertise</option>
+                <option value="info">Information générale</option>
+                <option value="garantie">Service garantie</option>
+              </select>
+              <span class="form-error">Veuillez sélectionner un objet.</span>
+            </div>
+          </div>
+
+          <div class="form-group reveal" data-delay="240">
+            <label class="form-label" for="message">Message *</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Décrivez votre demande en détail. Pour une vente, indiquez la référence, l'année et l'état de votre montre." data-required></textarea>
+            <span class="form-error">Veuillez saisir un message.</span>
+          </div>
+
+          <div class="form-group reveal" data-delay="300" style="display:flex;align-items:flex-start;gap:12px;">
+            <input type="checkbox" id="rgpd" name="rgpd" style="margin-top:4px;accent-color:#2E6DA4;width:16px;height:16px;flex-shrink:0;cursor:pointer;"/>
+            <label for="rgpd" style="font-size:0.82rem;color:var(--text-secondary);line-height:1.6;cursor:pointer;">
+              J'accepte que mes données soient traitées par Demco Quartz dans le cadre de ma demande, conformément à notre politique de confidentialité.
+            </label>
+          </div>
+
+          <div class="reveal" data-delay="360">
+            <button type="submit" class="btn btn-solid" style="font-size:1rem;padding:14px 40px;width:100%;">
+              Envoyer le message
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-sidebar">
+
+        <!-- Adresse Bruxelles -->
+        <div class="contact-card reveal" data-delay="0">
+          <div class="contact-card-title">
+            <svg style="display:inline;vertical-align:-3px;margin-right:8px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2E6DA4" stroke-width="2" stroke-linecap="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Boutique Bruxelles
+          </div>
+          <div class="contact-info">
+            <p><strong>Adresse</strong><a href="https://maps.google.com/?q=Rue+du+Marché+aux+Herbes+42,+1000+Bruxelles" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid rgba(184,148,106,0.35);">Rue du Marché aux Herbes 42<br>1000 Bruxelles, Belgique ↗</a></p>
+            <p><strong>Horaires</strong>Lun – Sam : 10h – 18h<br>Dimanche : sur rendez-vous</p>
+            <p><strong>Téléphone</strong><a href="tel:+3220000000" style="color:inherit;">+32 2 000 00 00</a></p>
+          </div>
+        </div>
+
+        <!-- Adresse Waterloo -->
+        <div class="contact-card reveal" data-delay="100">
+          <div class="contact-card-title">
+            <svg style="display:inline;vertical-align:-3px;margin-right:8px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2E6DA4" stroke-width="2" stroke-linecap="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Boutique Waterloo
+          </div>
+          <div class="contact-info">
+            <p><strong>Adresse</strong><a href="https://maps.google.com/?q=Chaussée+de+Bruxelles+118,+1410+Waterloo" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid rgba(184,148,106,0.35);">Chaussée de Bruxelles 118<br>1410 Waterloo, Belgique ↗</a></p>
+            <p><strong>Horaires</strong>Lun – Sam : 10h – 18h<br>Dimanche : sur rendez-vous</p>
+            <p><strong>Téléphone</strong><a href="tel:+3220000001" style="color:inherit;">+32 2 000 00 01</a></p>
+          </div>
+        </div>
+
+        <!-- Contact rapide -->
+        <div class="contact-card reveal" data-delay="200">
+          <div class="contact-card-title">Contact rapide</div>
+          <div class="contact-info">
+            <p><strong>Email général</strong>info@demcoquartz.com</p>
+            <p><strong>Email achats/ventes</strong>ventes@demcoquartz.com</p>
+            <p><strong>Instagram</strong>@demcoquartz</p>
+            <p><strong>Site web</strong>demcoquartz.com</p>
+          </div>
+          <a href="https://instagram.com/demcoquartz" target="_blank" rel="noopener"
+             class="btn btn-outline" style="width:100%;justify-content:center;margin-top:1rem;font-size:0.8rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            Suivre @demcoquartz
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENDRE VOTRE MONTRE -->
+<section style="padding:80px 2rem 100px;background:var(--bg-navy);border-top:1px solid rgba(168,180,192,0.08);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="section-header reveal">
+      <p class="section-label">Processus simple &amp; transparent</p>
+      <h2 class="section-title">Vendre Votre Montre</h2>
+      <div class="section-line"></div>
+      <p style="color:var(--text-secondary);margin-top:1.5rem;max-width:600px;margin-left:auto;margin-right:auto;font-size:0.95rem;line-height:1.7;">
+        Vous souhaitez céder une montre de luxe ? Notre processus est rapide, transparent et au prix juste du marché. Voici comment ça se passe.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;max-width:1000px;margin:0 auto 4rem;">
+      <div class="service-card reveal" data-delay="0">
+        <div class="service-icon" style="background:rgba(46,109,164,0.15);">
+          <span style="font-family:var(--font-title);font-size:1.4rem;font-weight:700;color:var(--chrome-mid);">01</span>
+        </div>
+        <h3 class="service-title">Contact</h3>
+        <p class="service-desc">Envoyez-nous les photos et infos de votre montre via le formulaire ou Instagram. Référence, année, boîte & documents si disponibles.</p>
+      </div>
+      <div class="service-card reveal" data-delay="100">
+        <div class="service-icon" style="background:rgba(46,109,164,0.15);">
+          <span style="font-family:var(--font-title);font-size:1.4rem;font-weight:700;color:var(--chrome-mid);">02</span>
+        </div>
+        <h3 class="service-title">Expertise</h3>
+        <p class="service-desc">Nos experts évaluent votre pièce sous 24 à 48h. Analyse de marché, état de la pièce, historique de la référence.</p>
+      </div>
+      <div class="service-card reveal" data-delay="200">
+        <div class="service-icon" style="background:rgba(46,109,164,0.15);">
+          <span style="font-family:var(--font-title);font-size:1.4rem;font-weight:700;color:var(--chrome-mid);">03</span>
+        </div>
+        <h3 class="service-title">Offre ferme</h3>
+        <p class="service-desc">Nous vous soumettons une offre d'achat ferme, au prix du marché. Pas de négociation à rallonge — des chiffres clairs et honnêtes.</p>
+      </div>
+      <div class="service-card reveal" data-delay="300">
+        <div class="service-icon" style="background:rgba(46,109,164,0.15);">
+          <span style="font-family:var(--font-title);font-size:1.4rem;font-weight:700;color:var(--chrome-mid);">04</span>
+        </div>
+        <h3 class="service-title">Paiement rapide</h3>
+        <p class="service-desc">Accord conclu, virement bancaire sous 24h. Nous organisons la récupération ou l'envoi sécurisé de votre montre.</p>
+      </div>
+    </div>
+
+    <!-- Checklist montres acceptées -->
+    <div style="max-width:700px;margin:0 auto;" class="reveal">
+      <div class="contact-card">
+        <div class="contact-card-title">Montres que nous achetons</div>
+        <ul class="sell-checklist" style="columns:2;gap:2rem;">
+          <li>Rolex (toutes références)</li>
+          <li>Patek Philippe</li>
+          <li>Audemars Piguet</li>
+          <li>Omega (Seamaster, Speedmaster…)</li>
+          <li>Cartier (Santos, Tank…)</li>
+          <li>Breitling (Navitimer…)</li>
+          <li>IWC (Portugieser, Pilot…)</li>
+          <li>Jaeger-LeCoultre</li>
+          <li>Panerai (Luminor…)</li>
+          <li>TAG Heuer (Carrera, Monaco…)</li>
+          <li>Hublot, Richard Mille</li>
+          <li>Autres manufactures sur demande</li>
+        </ul>
+        <p style="color:var(--text-secondary);font-size:0.83rem;margin-top:1.5rem;line-height:1.6;">
+          Boîte, bracelet et documents d'origine augmentent la valeur. Mais nous achetons aussi sans accessoires — chaque cas est étudié individuellement.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2024 DEMCO QUARTZ — Tous droits réservés · demcoquartz.com</p>
+      <div class="footer-legal">
+        <a href="index.html">Accueil</a>
+        <a href="collection.html">Collection</a>
+        <a href="a-propos.html">À propos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

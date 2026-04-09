@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>À Propos — Demco Quartz | 30 ans d'expertise horlogère</title>
+  <meta name="description" content="Découvrez l'histoire de Demco Quartz, spécialiste belge en montres de luxe d'occasion depuis 1994. Bruxelles & Waterloo."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/jpeg" href="logo.jpg"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <img src="logo.jpg" class="preloader-logo" alt="Demco Quartz"/>
+  <div class="preloader-brand">Demco Quartz</div>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+  <div class="preloader-tagline">Excellence Horlogère · Bruxelles</div>
+</div>
+
+<div class="cursor"></div>
+
+<!-- HEADER -->
+<header class="header scrolled" id="header">
+  <a href="index.html" class="logo">
+    <img src="logo.jpg" class="logo-svg" alt="Demco Quartz"/>
+    <span class="logo-text">DEMCO QUARTZ</span>
+  </a>
+  <nav class="nav">
+    <a href="index.html">Accueil</a>
+    <a href="collection.html">Collection</a>
+    <a href="a-propos.html" class="active">À propos</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-chrome nav-cta">Acheter / Vendre</a>
+    <button id="cart-btn" class="cart-btn" aria-label="Panier">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <span class="cart-label">Panier</span>
+      <span class="cart-count">0</span>
+    </button>
+  </nav>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="mobile-nav">
+  <a href="index.html">Accueil</a>
+  <a href="collection.html">Collection</a>
+  <a href="a-propos.html">À propos</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-solid" style="margin-top:1rem">Acheter / Vendre</a>
+</nav>
+
+<!-- CART DRAWER -->
+<div id="cart-overlay" class="cart-overlay"></div>
+<aside id="cart-drawer" class="cart-drawer" aria-label="Panier">
+  <div class="cart-drawer-header">
+    <span class="cart-drawer-title">
+      Mon Panier
+      <span class="cart-count" style="margin-left:8px;display:inline-flex;width:20px;height:20px;font-size:0.65rem;">0</span>
+    </span>
+    <button id="cart-close-btn" class="cart-close-btn" aria-label="Fermer">✕</button>
+  </div>
+  <div id="cart-items-list" class="cart-items-list">
+    <p class="cart-empty-msg">Votre panier est vide.</p>
+  </div>
+  <div class="cart-drawer-footer">
+    <div class="cart-total-line">
+      <span class="cart-total-label">Total estimé</span>
+      <span class="cart-total-amount" id="cart-total-amount">€ 0</span>
+    </div>
+    <a href="paiement.html" class="btn btn-solid cart-checkout-btn">
+      Procéder à l'achat →
+    </a>
+    <p style="font-size:0.72rem;color:var(--text-secondary);text-align:center;line-height:1.5;">
+      Paiement sécurisé · Garantie 24 mois · Livraison DHL Express
+    </p>
+  </div>
+</aside>
+
+<!-- PAGE HERO -->
+<section class="page-hero dot-grid">
+  <p class="section-label" style="margin-bottom:0.8rem;">Depuis 1994 · Bruxelles &amp; Waterloo</p>
+  <h1 class="page-hero-title">Notre Histoire</h1>
+  <p class="page-hero-sub">Trente ans de passion, d'expertise et de confiance au service de l'horlogerie de prestige</p>
+</section>
+
+<!-- INTRO SPLIT -->
+<section class="about-section">
+  <div class="about-inner">
+    <div class="about-left">
+      <p class="about-label reveal">Notre ADN</p>
+      <h2 class="about-title reveal">L'Acier, la Précision,<br>la Confiance</h2>
+      <p class="about-text reveal">
+        Demco Quartz est née d'une conviction simple : une grande montre mérite une seconde vie à la hauteur de sa première. Depuis 1994, nous opérons au cœur de la Belgique, à Bruxelles et Waterloo, en sélectionnant les pièces les plus remarquables du marché secondaire mondial.
+      </p>
+      <p class="about-text reveal">
+        Notre fondateur, passionné d'horlogerie mécanique depuis l'adolescence, a bâti Demco Quartz sur un principe intransigeant : l'authenticité ou rien. Chaque montre qui passe entre nos mains est démontée, inspectée, documentée. Notre réputation, c'est notre meilleure garantie.
+      </p>
+      <p class="about-text reveal">
+        Aujourd'hui, Demco Quartz est reconnue par les collectionneurs belges et européens comme la référence en matière de montres de luxe d'occasion. Notre collection tourne régulièrement, avec des pièces rares et des valeurs sûres — Rolex, Patek Philippe, Audemars Piguet, Omega, Cartier.
+      </p>
+    </div>
+    <div class="about-image-wrap reveal">
+      <img src="histoire.jpg" alt="Demco Quartz — Notre histoire" class="about-real-img"/>
+      <div class="about-image-overlay"></div>
+      <div class="about-image-caption">
+        <strong>Demco Quartz</strong>
+        <span>Fondée en 1994 · Bruxelles</span>
+      </div>
+    </div>
+        <div class="about-image-overlay"></div>
+        <div class="about-image-caption">
+          <strong>30 Années</strong>
+          <span>d'excellence horlogère</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section style="padding:100px 2rem;background:var(--bg-deep);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="section-header reveal">
+      <p class="section-label">Notre parcours</p>
+      <h2 class="section-title">30 Ans d'Histoire</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline-section" style="padding:0 2rem;">
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">1994</div>
+          <div class="timeline-title">Fondation à Bruxelles</div>
+          <div class="timeline-desc">Ouverture de la première boutique Demco Quartz au cœur de Bruxelles. Une table de travail, une loupe, et une passion dévorante pour l'horlogerie de précision. Les premières Rolex et Omega passent entre nos mains.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">1998</div>
+          <div class="timeline-title">Boutique de Waterloo</div>
+          <div class="timeline-desc">La réputation grandit. Une seconde adresse ouvre ses portes à Waterloo, au cœur du Brabant wallon. La clientèle s'élargit : collectionneurs, investisseurs, amateurs éclairés du monde entier commencent à nous faire confiance.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2003</div>
+          <div class="timeline-title">Partenariat DHL Express</div>
+          <div class="timeline-desc">Signature d'un accord exclusif avec DHL Express pour l'expédition sécurisée de nos pièces à l'international. Désormais, chaque montre voyage assurée, tracée, protégée — quelle que soit la destination.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2008</div>
+          <div class="timeline-title">Certification d'authenticité Demco</div>
+          <div class="timeline-desc">Lancement de notre protocole d'expertise maison : inspection en 47 points, documentation photographique complète, certificat d'authenticité numéroté. Notre standard devient une référence dans le marché belge de l'horlogerie d'occasion.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2012</div>
+          <div class="timeline-title">Garantie 24 Mois</div>
+          <div class="timeline-desc">Introduction de notre garantie maison étendue à 24 mois sur le mouvement et le fonctionnement. Une promesse forte qui nous distingue sur le marché et rassure durablement nos clients acheteurs.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2015</div>
+          <div class="timeline-title">Spécialisation Haute Horlogerie</div>
+          <div class="timeline-desc">Expansion de notre collection vers les manufactures les plus prestigieuses : Patek Philippe, Audemars Piguet, Jaeger-LeCoultre, A. Lange & Söhne. Demco Quartz devient un interlocuteur de référence pour les pièces à forte valeur.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2020</div>
+          <div class="timeline-title">Lancement Digital</div>
+          <div class="timeline-desc">Création de notre présence en ligne et de notre compte Instagram @demcoquartz. La collection est accessible à l'international 24h/24. Les ventes en ligne décollent, touchant une clientèle européenne et mondiale.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2024</div>
+          <div class="timeline-title">500+ Montres vendues · 30 ans</div>
+          <div class="timeline-desc">Un cap symbolique : plus de 500 pièces de luxe authentifiées et vendues depuis notre fondation. Trente ans de passion, de rigueur et de confiance. Et l'aventure continue, une montre après l'autre.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOS VALEURS -->
+<section class="values-section">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="section-header reveal">
+      <p class="section-label">Ce qui nous définit</p>
+      <h2 class="section-title">Nos Valeurs</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal" data-delay="0">
+        <div class="value-number">01</div>
+        <div class="value-title">Authenticité</div>
+        <div class="value-desc">Aucune montre ne quitte nos mains sans une expertise minutieuse. Nous ne transigeons jamais sur l'authenticité. C'est notre fondement, notre signature, notre engagement absolu.</div>
+      </div>
+      <div class="value-card reveal" data-delay="100">
+        <div class="value-number">02</div>
+        <div class="value-title">Expertise</div>
+        <div class="value-desc">Trente ans de pratique quotidienne. Nous connaissons les références, les millésimes, les évolutions de boîtier, les variations de cadran. Notre expertise est notre actif le plus précieux.</div>
+      </div>
+      <div class="value-card reveal" data-delay="200">
+        <div class="value-number">03</div>
+        <div class="value-title">Confiance</div>
+        <div class="value-desc">Nos clients reviennent, et nous recommandent. Parce que chaque transaction est honnête, chaque description est précise, chaque garantie est tenue. La confiance ne s'achète pas, elle se mérite.</div>
+      </div>
+      <div class="value-card reveal" data-delay="300">
+        <div class="value-number">04</div>
+        <div class="value-title">Passion</div>
+        <div class="value-desc">L'horlogerie n'est pas seulement notre métier — c'est notre obsession. Cette passion se ressent dans chaque détail : la façon dont nous présentons, décrivons et protégeons chaque pièce.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES RECAP -->
+<section class="services-section" style="background:var(--bg-deep);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="section-header reveal">
+      <p class="section-label">Ce que nous proposons</p>
+      <h2 class="section-title">Nos Services</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal" data-delay="0">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#A8B4C0" stroke-width="1.8" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Achat de montres</h3>
+        <p class="service-desc">Vous souhaitez vendre votre montre de luxe ? Nous procédons à une estimation rapide et transparente. Contact, expertise, offre ferme sous 48h. Prix du marché garantis.</p>
+      </div>
+      <div class="service-card reveal" data-delay="150">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#A8B4C0" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Vente avec garantie</h3>
+        <p class="service-desc">Chaque montre vendue bénéficie de notre garantie maison 24 mois. Certification d'authenticité, état documenté, livraison DHL Express assurée.</p>
+      </div>
+      <div class="service-card reveal" data-delay="300">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#A8B4C0" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Conseil &amp; recherche</h3>
+        <p class="service-desc">Vous cherchez une référence précise ? Nos experts sillonnent le marché pour vous. Conseil en acquisition, estimation de valeur, recherche de pièces spécifiques.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem;" class="reveal">
+      <a href="contact.html" class="btn btn-solid" style="font-size:1rem;padding:14px 36px;">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2024 DEMCO QUARTZ — Tous droits réservés · demcoquartz.com</p>
+      <div class="footer-legal">
+        <a href="index.html">Accueil</a>
+        <a href="collection.html">Collection</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

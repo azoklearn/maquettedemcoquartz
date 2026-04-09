@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paiement — Demco Quartz | Finaliser votre achat</title>
+  <meta name="description" content="Finalisez votre achat de montre de luxe chez Demco Quartz. Paiement sécurisé, garantie 24 mois."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/jpeg" href="logo.jpg"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    /* ─── Styles spécifiques à la page paiement ─── */
+    .payment-page {
+      min-height: 100vh;
+      padding: 100px 2rem 80px;
+    }
+    .payment-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ── Formulaire ── */
+    .payment-form-wrap {}
+    .payment-section-title {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--brass-light);
+      margin-bottom: 0.5rem;
+    }
+    .payment-section-sub {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      letter-spacing: 0.04em;
+    }
+
+    .payment-block {
+      background: var(--bg-card);
+      border: 1px solid rgba(184,148,106,0.12);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .payment-block-title {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--brass-mid);
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(184,148,106,0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .payment-block-title svg { flex-shrink: 0; }
+
+    /* Carte bancaire visuelle */
+    .card-visual {
+      background: linear-gradient(135deg, #111828 0%, #1a2540 50%, #0d1420 100%);
+      border: 1px solid rgba(184,148,106,0.2);
+      border-radius: 12px;
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 1.6rem;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1.586;
+      max-width: 340px;
+    }
+    .card-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 20%, rgba(184,148,106,0.08) 0%, transparent 60%);
+    }
+    .card-chip {
+      width: 38px; height: 28px;
+      background: linear-gradient(135deg, #C4A97A, #8A6840);
+      border-radius: 5px;
+      margin-bottom: 1.4rem;
+      position: relative;
+    }
+    .card-chip::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 22px; height: 16px;
+      border: 1.5px solid rgba(0,0,0,0.3);
+      border-radius: 3px;
+    }
+    .card-number-display {
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      letter-spacing: 0.22em;
+      color: var(--brass-light);
+      margin-bottom: 1.2rem;
+    }
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .card-label-sm {
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass-dark);
+      margin-bottom: 3px;
+    }
+    .card-value-sm {
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      color: var(--brass-light);
+      letter-spacing: 0.1em;
+    }
+    .card-network {
+      width: 48px;
+      display: flex;
+      gap: -8px;
+    }
+    .card-circle {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      opacity: 0.8;
+    }
+    .card-circle:first-child { background: #EB001B; margin-right: -10px; }
+    .card-circle:last-child  { background: #F79E1B; }
+
+    /* Champ numéro carte avec icône */
+    .input-icon-wrap {
+      position: relative;
+    }
+    .input-icon-wrap .form-input {
+      padding-right: 42px;
+    }
+    .input-icon {
+      position: absolute;
+      right: 13px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* ── Récapitulatif commande ── */
+    .order-summary {
+      position: sticky;
+      top: 100px;
+    }
+    .summary-title {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--brass-light);
+      margin-bottom: 1.4rem;
+    }
+    .summary-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(184,148,106,0.12);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .summary-items {
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-height: 380px;
+      overflow-y: auto;
+    }
+    .summary-items::-webkit-scrollbar { width: 3px; }
+    .summary-items::-webkit-scrollbar-thumb { background: rgba(184,148,106,0.2); border-radius: 2px; }
+
+    .summary-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    .summary-item-img {
+      width: 72px; height: 72px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid rgba(184,148,106,0.1);
+    }
+    .summary-item-img-fallback {
+      width: 72px; height: 72px;
+      background: radial-gradient(circle at 40% 40%, #1A2030, #06080D);
+      border-radius: 4px;
+      border: 1px solid rgba(184,148,106,0.1);
+    }
+    .summary-item-brand {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--brass-light);
+    }
+    .summary-item-ref {
+      font-family: var(--font-ref);
+      font-size: 0.62rem;
+      color: var(--brass-mid);
+      margin: 2px 0;
+    }
+    .summary-item-model {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-bottom: 3px;
+    }
+    .summary-item-price {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--brass-mid);
+    }
+    .summary-empty {
+      padding: 2rem 1.4rem;
+      text-align: center;
+      font-family: var(--font-title);
+      font-style: italic;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    .summary-footer {
+      border-top: 1px solid rgba(184,148,106,0.1);
+      padding: 1.4rem;
+    }
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.6rem;
+    }
+    .summary-line.total {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(184,148,106,0.08);
+    }
+    .summary-line.total .label {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .summary-line.total .amount {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--brass-light);
+    }
+
+    /* Badges sécurité */
+    .security-badges {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+    .security-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-ref);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .security-badge svg { color: var(--brass-mid); }
+
+    /* Confirmation overlay */
+    #confirm-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6,8,13,0.97);
+      backdrop-filter: blur(16px);
+      z-index: 9998;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      padding: 2rem;
+    }
+    #confirm-overlay.show { opacity: 1; pointer-events: all; }
+    .confirm-box {
+      text-align: center;
+      max-width: 480px;
+    }
+    .confirm-icon {
+      width: 72px; height: 72px;
+      border: 1.5px solid var(--brass-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      animation: pulse-confirm 2s ease-in-out infinite;
+    }
+    @keyframes pulse-confirm {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(184,148,106,0.4); }
+      50%       { box-shadow: 0 0 0 16px rgba(184,148,106,0); }
+    }
+    .confirm-title {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--brass-light);
+      margin-bottom: 1rem;
+    }
+    .confirm-ref {
+      font-family: var(--font-ref);
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      color: var(--brass-mid);
+      margin-bottom: 1rem;
+    }
+    .confirm-text {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .payment-inner { grid-template-columns: 1fr; }
+      .order-summary { position: static; }
+    }
+    @media (max-width: 480px) {
+      .payment-page { padding: 88px 1.2rem 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <img src="logo.jpg" class="preloader-logo" alt="Demco Quartz"/>
+  <div class="preloader-brand">Demco Quartz</div>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+  <div class="preloader-tagline">Excellence Horlogère · Bruxelles</div>
+</div>
+
+<div class="cursor"></div>
+
+<!-- HEADER -->
+<header class="header scrolled" id="header">
+  <a href="index.html" class="logo">
+    <img src="logo.jpg" class="logo-svg" alt="Demco Quartz"/>
+    <span class="logo-text">DEMCO QUARTZ</span>
+  </a>
+  <nav class="nav">
+    <a href="index.html">Accueil</a>
+    <a href="collection.html">Collection</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.chrono24.be" target="_blank" rel="noopener" class="trusted-badge" title="Chrono24 Trusted Seller">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B8946A" stroke-width="2.5" stroke-linecap="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="m9 12 2 2 4-4"/>
+      </svg>
+      Chrono24 Trusted Seller
+    </a>
+    <button id="cart-btn" class="cart-btn" aria-label="Panier">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <span class="cart-label">Panier</span>
+      <span class="cart-count">0</span>
+    </button>
+  </nav>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="mobile-nav">
+  <a href="index.html">Accueil</a>
+  <a href="collection.html">Collection</a>
+  <a href="a-propos.html">À propos</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- CART DRAWER -->
+<div id="cart-overlay" class="cart-overlay"></div>
+<aside id="cart-drawer" class="cart-drawer" aria-label="Panier">
+  <div class="cart-drawer-header">
+    <span class="cart-drawer-title">
+      Mon Panier
+      <span class="cart-count" style="margin-left:8px;display:inline-flex;width:20px;height:20px;font-size:0.65rem;">0</span>
+    </span>
+    <button id="cart-close-btn" class="cart-close-btn" aria-label="Fermer">✕</button>
+  </div>
+  <div id="cart-items-list" class="cart-items-list">
+    <p class="cart-empty-msg">Votre panier est vide.</p>
+  </div>
+  <div class="cart-drawer-footer">
+    <div class="cart-total-line">
+      <span class="cart-total-label">Total estimé</span>
+      <span class="cart-total-amount" id="cart-total-amount">€ 0</span>
+    </div>
+    <a href="paiement.html" class="btn btn-solid cart-checkout-btn">
+      Procéder à l'achat →
+    </a>
+    <p style="font-size:0.72rem;color:var(--text-secondary);text-align:center;line-height:1.5;">
+      Paiement sécurisé · Garantie 24 mois · Livraison DHL Express
+    </p>
+  </div>
+</aside>
+
+<!-- CONFIRMATION OVERLAY -->
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <div class="confirm-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8946A" stroke-width="1.8" stroke-linecap="round">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+    </div>
+    <div class="confirm-title">Commande confirmée</div>
+    <div class="confirm-ref" id="confirm-ref-num">N° DQ-000000</div>
+    <p class="confirm-text">
+      Merci pour votre confiance. Notre équipe vous contactera dans les prochaines 24 heures pour finaliser les modalités de livraison et de remise en main propre de votre montre.<br><br>
+      Un email de confirmation a été envoyé à votre adresse.
+    </p>
+    <a href="collection.html" class="btn btn-outline" style="margin-right:0.8rem;">Retour à la collection</a>
+    <a href="index.html" class="btn btn-solid">Accueil</a>
+  </div>
+</div>
+
+<!-- PAGE PAIEMENT -->
+<main class="payment-page">
+  <div class="payment-inner">
+
+    <!-- ═══ FORMULAIRE GAUCHE ═══ -->
+    <div class="payment-form-wrap">
+      <p class="section-label" style="margin-bottom:0.5rem;">Finaliser l'achat</p>
+      <h1 class="payment-section-title">Informations &amp; Paiement</h1>
+      <p class="payment-section-sub">Toutes vos données sont transmises via connexion chiffrée SSL 256-bit.</p>
+
+      <form id="payment-form" novalidate>
+
+        <!-- Coordonnées -->
+        <div class="payment-block">
+          <div class="payment-block-title">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Vos coordonnées
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="p-prenom">Prénom *</label>
+              <input class="form-input" type="text" id="p-prenom" name="prenom" placeholder="Jean" data-required autocomplete="given-name"/>
+              <span class="form-error">Champ requis.</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p-nom">Nom *</label>
+              <input class="form-input" type="text" id="p-nom" name="nom" placeholder="Dupont" data-required autocomplete="family-name"/>
+              <span class="form-error">Champ requis.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="p-email">Email *</label>
+              <input class="form-input" type="email" id="p-email" name="email" placeholder="jean@exemple.com" data-required autocomplete="email"/>
+              <span class="form-error">Email invalide.</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p-tel">Téléphone *</label>
+              <input class="form-input" type="tel" id="p-tel" name="tel" placeholder="+32 470 000 000" data-required autocomplete="tel"/>
+              <span class="form-error">Champ requis.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adresse de livraison -->
+        <div class="payment-block">
+          <div class="payment-block-title">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Adresse de livraison
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="p-adresse">Adresse *</label>
+            <input class="form-input" type="text" id="p-adresse" name="adresse" placeholder="Rue du Marché 12" data-required autocomplete="street-address"/>
+            <span class="form-error">Champ requis.</span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="p-cp">Code postal *</label>
+              <input class="form-input" type="text" id="p-cp" name="cp" placeholder="1000" data-required autocomplete="postal-code"/>
+              <span class="form-error">Champ requis.</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p-ville">Ville *</label>
+              <input class="form-input" type="text" id="p-ville" name="ville" placeholder="Bruxelles" data-required autocomplete="address-level2"/>
+              <span class="form-error">Champ requis.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="p-pays">Pays</label>
+            <select class="form-select" id="p-pays" name="pays" autocomplete="country">
+              <option value="BE" selected>Belgique</option>
+              <option value="FR">France</option>
+              <option value="LU">Luxembourg</option>
+              <option value="NL">Pays-Bas</option>
+              <option value="DE">Allemagne</option>
+              <option value="CH">Suisse</option>
+              <option value="other">Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Paiement par carte -->
+        <div class="payment-block">
+          <div class="payment-block-title">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            Paiement par carte
+          </div>
+
+          <!-- Carte visuelle -->
+          <div class="card-visual">
+            <div class="card-chip"></div>
+            <div class="card-number-display" id="card-display-num">•••• •••• •••• ••••</div>
+            <div class="card-bottom">
+              <div>
+                <div class="card-label-sm">Titulaire</div>
+                <div class="card-value-sm" id="card-display-name">VOTRE NOM</div>
+              </div>
+              <div>
+                <div class="card-label-sm">Expire</div>
+                <div class="card-value-sm" id="card-display-exp">MM/AA</div>
+              </div>
+              <div class="card-network">
+                <div class="card-circle"></div>
+                <div class="card-circle"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="p-card-name">Nom sur la carte *</label>
+            <input class="form-input" type="text" id="p-card-name" name="card-name"
+                   placeholder="JEAN DUPONT" data-required autocomplete="cc-name"
+                   oninput="document.getElementById('card-display-name').textContent=this.value.toUpperCase()||'VOTRE NOM'"/>
+            <span class="form-error">Champ requis.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="p-card-num">Numéro de carte *</label>
+            <div class="input-icon-wrap">
+              <input class="form-input" type="text" id="p-card-num" name="card-num"
+                     placeholder="1234 5678 9012 3456" data-required
+                     maxlength="19" autocomplete="cc-number"
+                     oninput="formatCardNum(this)"/>
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <span class="form-error">Numéro invalide.</span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="p-exp">Expiration *</label>
+              <input class="form-input" type="text" id="p-exp" name="exp"
+                     placeholder="MM/AA" data-required maxlength="5" autocomplete="cc-exp"
+                     oninput="formatExp(this)"/>
+              <span class="form-error">Date invalide.</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p-cvv">CVV *</label>
+              <div class="input-icon-wrap">
+                <input class="form-input" type="text" id="p-cvv" name="cvv"
+                       placeholder="•••" data-required maxlength="4" autocomplete="cc-csc"/>
+                <svg class="input-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <span class="form-error">CVV invalide.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RGPD + Submit -->
+        <div class="form-group" style="display:flex;align-items:flex-start;gap:12px;margin-bottom:1.5rem;">
+          <input type="checkbox" id="p-rgpd" name="rgpd"
+                 style="margin-top:4px;accent-color:#B8946A;width:16px;height:16px;flex-shrink:0;cursor:pointer;"/>
+          <label for="p-rgpd" style="font-size:0.78rem;color:var(--text-secondary);line-height:1.6;cursor:pointer;">
+            J'accepte les conditions générales de vente et la politique de confidentialité de Demco Quartz. Je confirme que mes informations sont exactes.
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-solid" id="pay-btn"
+                style="width:100%;justify-content:center;font-size:0.9rem;padding:16px;font-family:var(--font-ui);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          Confirmer et payer
+        </button>
+
+        <div class="security-badges" style="margin-top:1.5rem;">
+          <div class="security-badge">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            SSL 256-bit
+          </div>
+          <div class="security-badge">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Garantie 24 mois
+          </div>
+          <div class="security-badge">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12m0 0l-3-3m3 3l3-3M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            Livraison DHL Express
+          </div>
+          <div class="security-badge">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Remise en boutique possible
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- ═══ RÉCAPITULATIF DROITE ═══ -->
+    <div class="order-summary">
+      <div class="summary-title">Votre commande</div>
+      <div class="summary-card">
+        <div class="summary-items" id="summary-items">
+          <p class="summary-empty">Panier vide — <a href="collection.html" style="color:var(--brass-mid);">voir la collection</a></p>
+        </div>
+        <div class="summary-footer">
+          <div class="summary-line">
+            <span>Authentification &amp; expertise</span>
+            <span style="color:var(--brass-mid);">Inclus</span>
+          </div>
+          <div class="summary-line">
+            <span>Garantie Demco Quartz</span>
+            <span style="color:var(--brass-mid);">24 mois</span>
+          </div>
+          <div class="summary-line">
+            <span>Livraison DHL Express</span>
+            <span style="color:var(--brass-mid);">Assurée</span>
+          </div>
+          <div class="summary-line total">
+            <span class="label">Total</span>
+            <span class="amount" id="summary-total">€ 0</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.2rem;padding:1.2rem;background:var(--bg-card);border:1px solid rgba(184,148,106,0.1);border-radius:var(--radius);">
+        <div class="trusted-badge-sm" style="margin-bottom:0.7rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+          </svg>
+          Chrono24 Trusted Seller
+        </div>
+        <p style="font-size:0.78rem;color:var(--text-secondary);line-height:1.7;">
+          Demco Quartz est un vendeur certifié Chrono24. Chaque montre est expertisée, authentifiée et livrée avec certificat d'authenticité.
+        </p>
+      </div>
+
+      <p style="font-size:0.72rem;color:var(--text-muted);margin-top:1rem;text-align:center;font-family:var(--font-ref);letter-spacing:0.05em;">
+        Des questions ? <a href="contact.html" style="color:var(--brass-mid);">Contactez-nous</a>
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2024 DEMCO QUARTZ — Tous droits réservés · demcoquartz.com</p>
+      <div class="footer-legal">
+        <a href="index.html">Accueil</a>
+        <a href="collection.html">Collection</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Lecture du panier ── */
+  function getCart() {
+    try { return JSON.parse(sessionStorage.getItem('dq_cart') || '[]'); } catch { return []; }
+  }
+  function calcTotal(cart) {
+    return cart.reduce((sum, item) => {
+      const n = parseInt((item.price || '').replace(/[^\d]/g, ''), 10);
+      return sum + (isNaN(n) ? 0 : n);
+    }, 0);
+  }
+  function formatEur(n) {
+    return '€\u00a0' + n.toLocaleString('fr-BE');
+  }
+
+  /* ── Rendu récapitulatif ── */
+  function renderSummary() {
+    const cart = getCart();
+    const itemsEl = document.getElementById('summary-items');
+    const totalEl = document.getElementById('summary-total');
+    if (!itemsEl) return;
+
+    if (cart.length === 0) {
+      itemsEl.innerHTML = '<p class="summary-empty">Panier vide — <a href="collection.html" style="color:var(--brass-mid);">voir la collection</a></p>';
+      if (totalEl) totalEl.textContent = '€ 0';
+      return;
+    }
+
+    itemsEl.innerHTML = cart.map(item => `
+      <div class="summary-item">
+        ${item.img
+          ? `<img src="${item.img}" alt="${item.brand}" class="summary-item-img" onerror="this.outerHTML='<div class=summary-item-img-fallback></div>'">`
+          : `<div class="summary-item-img-fallback"></div>`
+        }
+        <div>
+          <div class="summary-item-brand">${item.brand}</div>
+          <div class="summary-item-ref">REF. ${item.ref}</div>
+          <div class="summary-item-model">${item.model || ''}</div>
+          <div class="summary-item-price">${item.price}</div>
+        </div>
+      </div>
+    `).join('');
+
+    if (totalEl) totalEl.textContent = formatEur(calcTotal(cart));
+  }
+
+  renderSummary();
+
+  /* ── Formatage numéro carte ── */
+  window.formatCardNum = function (input) {
+    let v = input.value.replace(/\D/g, '').slice(0, 16);
+    input.value = v.replace(/(.{4})/g, '$1 ').trim();
+    const display = v.padEnd(16, '•').replace(/(.{4})/g, '$1 ').trim();
+    const el = document.getElementById('card-display-num');
+    if (el) el.textContent = display;
+  };
+
+  window.formatExp = function (input) {
+    let v = input.value.replace(/\D/g, '').slice(0, 4);
+    if (v.length >= 3) v = v.slice(0,2) + '/' + v.slice(2);
+    input.value = v;
+    const el = document.getElementById('card-display-exp');
+    if (el) el.textContent = v || 'MM/AA';
+  };
+
+  /* ── Validation & soumission ── */
+  const form = document.getElementById('payment-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const rgpd = document.getElementById('p-rgpd');
+      if (!rgpd || !rgpd.checked) {
+        rgpd.style.outline = '2px solid #d04040';
+        rgpd.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      rgpd.style.outline = '';
+
+      let valid = true;
+      form.querySelectorAll('[data-required]').forEach(field => {
+        const group = field.closest('.form-group');
+        if (!group) return;
+        const empty = !field.value.trim();
+        group.classList.toggle('error', empty);
+        if (empty) valid = false;
+      });
+
+      if (!valid) {
+        form.querySelector('.form-group.error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      /* Simuler le traitement */
+      const btn = document.getElementById('pay-btn');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="animation:spin-ring 1s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg> Traitement en cours…';
+      }
+
+      setTimeout(() => {
+        /* Générer un numéro de commande */
+        const orderNum = 'DQ-' + Date.now().toString().slice(-6);
+        const refEl = document.getElementById('confirm-ref-num');
+        if (refEl) refEl.textContent = 'N° ' + orderNum;
+
+        /* Vider le panier */
+        sessionStorage.removeItem('dq_cart');
+
+        /* Afficher la confirmation */
+        const overlay = document.getElementById('confirm-overlay');
+        if (overlay) overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }, 1800);
+    });
+  }
+
+})();
+</script>
+</body>
+</html>

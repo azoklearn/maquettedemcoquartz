@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Demco Quartz — Montres de Luxe d'Occasion | Bruxelles & Waterloo</title>
+  <meta name="description" content="Demco Quartz, spécialiste belge en montres de luxe d'occasion depuis 30 ans. Achat, vente, expertise. Garantie 24 mois. Bruxelles & Waterloo."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/jpeg" href="logo.jpg"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     PRELOADER
+     ══════════════════════════════════════ -->
+<div id="preloader">
+  <img src="logo.jpg" class="preloader-logo" alt="Demco Quartz"/>
+  <div class="preloader-brand">Demco Quartz</div>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+  <div class="preloader-tagline">Excellence Horlogère · Bruxelles</div>
+</div>
+
+<!-- ── Cursor personnalisé ── -->
+<div class="cursor"></div>
+
+<!-- ══════════════════════════════════════
+     HEADER STICKY
+     ══════════════════════════════════════ -->
+<header class="header" id="header">
+  <div class="header-left">
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" class="logo-svg" alt="Demco Quartz"/>
+      <span class="logo-text">DEMCO QUARTZ</span>
+    </a>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html" class="active">Accueil</a>
+    <a href="collection.html">Collection</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="header-right">
+    <a href="https://www.instagram.com" target="_blank" rel="noopener" class="nav-instagram" aria-label="Instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+    <a href="contact.html" class="btn btn-chrome nav-cta">Acheter / Vendre</a>
+    <button id="cart-btn" class="cart-btn" aria-label="Panier">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <span class="cart-label">Panier</span>
+      <span class="cart-count">0</span>
+    </button>
+  </div>
+
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav">
+  <a href="index.html">Accueil</a>
+  <a href="collection.html">Collection</a>
+  <a href="a-propos.html">À propos</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-solid" style="margin-top:1rem">Acheter / Vendre</a>
+</nav>
+
+<!-- ══════════════════════════════════════
+     CART DRAWER
+     ══════════════════════════════════════ -->
+<div id="cart-overlay" class="cart-overlay"></div>
+<aside id="cart-drawer" class="cart-drawer" aria-label="Panier">
+  <div class="cart-drawer-header">
+    <span class="cart-drawer-title">
+      Mon Panier
+      <span class="cart-count" style="margin-left:8px;display:inline-flex;width:20px;height:20px;font-size:0.65rem;">0</span>
+    </span>
+    <button id="cart-close-btn" class="cart-close-btn" aria-label="Fermer">✕</button>
+  </div>
+  <div id="cart-items-list" class="cart-items-list">
+    <p class="cart-empty-msg">Votre panier est vide.</p>
+  </div>
+  <div class="cart-drawer-footer">
+    <div class="cart-total-line">
+      <span class="cart-total-label">Total estimé</span>
+      <span class="cart-total-amount" id="cart-total-amount">€ 0</span>
+    </div>
+    <a href="paiement.html" class="btn btn-solid cart-checkout-btn">
+      Procéder à l'achat →
+    </a>
+    <p style="font-size:0.72rem;color:var(--text-secondary);text-align:center;line-height:1.5;">
+      Paiement sécurisé · Garantie 24 mois · Livraison DHL Express
+    </p>
+  </div>
+</aside>
+
+<!-- ══════════════════════════════════════
+     HERO — Canvas Three.js mécanisme horloger
+     ══════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Bruxelles &amp; Waterloo · Belgique · Est. 1994</p>
+    <h1>L'EXCELLENCE<br>HORLOGÈRE</h1>
+    <p class="hero-subtitle">Montres de luxe d'occasion · Bruxelles &amp; Waterloo</p>
+    <p class="hero-tagline">"Chaque seconde compte. Chaque montre a sa valeur."</p>
+    <div class="hero-ctas">
+      <a href="collection.html" class="btn btn-outline">Voir la collection</a>
+      <a href="contact.html"    class="btn btn-solid">Nous contacter</a>
+    </div>
+    <!-- Badge Chrono24 dans le hero -->
+    <div style="margin-top:2rem;">
+      <a href="https://www.chrono24.be" target="_blank" rel="noopener" class="trusted-badge" style="margin:0 auto;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2E6DA4" stroke-width="2.5" stroke-linecap="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+        Chrono24 Trusted Seller
+      </a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Défiler pour explorer</span>
+    <div class="scroll-chevron"></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     COLLECTION APERÇU (6 cartes — vraies photos)
+     ══════════════════════════════════════ -->
+<section class="collection-section dot-grid">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="section-header reveal">
+      <p class="section-label">Sélection actuelle</p>
+      <h2 class="section-title">Notre Collection</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="collection-grid">
+
+      <!-- 1 : Rolex Submariner -->
+      <div class="watch-card reveal" data-delay="0"
+           data-ref="116610LN" data-brand="Rolex" data-model="Submariner Date"
+           data-price="€ 8 900"
+           data-img="montre1.jpg">
+        <div class="watch-card-image">
+          <img src="montre1.jpg"
+               alt="Rolex Submariner Date" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Rolex</div>
+          <div class="watch-ref">REF. 116610LN</div>
+          <div class="watch-model">Submariner Date · Acier</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Excellent</span>
+            <span class="watch-price">€ 8 900</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="116610LN">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 2 : Omega Seamaster -->
+      <div class="watch-card reveal" data-delay="100"
+           data-ref="210.30.42.20.01.001" data-brand="Omega" data-model="Seamaster 300M"
+           data-price="€ 4 200"
+           data-img="montre2.jpg">
+        <div class="watch-card-image">
+          <img src="montre2.jpg"
+               alt="Omega Seamaster" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Omega</div>
+          <div class="watch-ref">REF. 210.30.42.20.01.001</div>
+          <div class="watch-model">Seamaster 300M · Co-Axial</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Très bon</span>
+            <span class="watch-price">€ 4 200</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="210.30.42.20.01.001">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 3 : Rolex GMT-Master II Batman -->
+      <div class="watch-card reveal" data-delay="200"
+           data-ref="116710BLNR" data-brand="Rolex" data-model="GMT-Master II Batman"
+           data-price="€ 14 200"
+           data-img="montre3.jpg">
+        <div class="watch-card-image">
+          <img src="montre3.jpg"
+               alt="Rolex GMT-Master II" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Rolex</div>
+          <div class="watch-ref">REF. 116710BLNR</div>
+          <div class="watch-model">GMT-Master II · "Batman"</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Parfait</span>
+            <span class="watch-price">€ 14 200</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="116710BLNR">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 4 : Breitling Navitimer -->
+      <div class="watch-card reveal" data-delay="0"
+           data-ref="AB0121211B1P1" data-brand="Breitling" data-model="Navitimer 01"
+           data-price="€ 6 500"
+           data-img="montre4.jpg">
+        <div class="watch-card-image">
+          <img src="montre4.jpg"
+               alt="Breitling Navitimer" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Breitling</div>
+          <div class="watch-ref">REF. AB0121211B1P1</div>
+          <div class="watch-model">Navitimer 01 · Chronographe</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Excellent</span>
+            <span class="watch-price">€ 6 500</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="AB0121211B1P1">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 5 : Patek Philippe Calatrava -->
+      <div class="watch-card reveal" data-delay="100"
+           data-ref="5227G-001" data-brand="Patek Philippe" data-model="Calatrava"
+           data-price="€ 22 000"
+           data-img="montre5.jpg">
+        <div class="watch-card-image">
+          <img src="montre5.jpg"
+               alt="Patek Philippe Calatrava" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Patek Philippe</div>
+          <div class="watch-ref">REF. 5227G-001</div>
+          <div class="watch-model">Calatrava · Or blanc 18k</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Excellent</span>
+            <span class="watch-price">€ 22 000</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="5227G-001">Ajouter au panier</button>
+        </div>
+      </div>
+
+      <!-- 6 : Audemars Piguet Royal Oak -->
+      <div class="watch-card reveal" data-delay="200"
+           data-ref="15400ST.OO.1220ST.01" data-brand="Audemars Piguet" data-model="Royal Oak"
+           data-price="€ 28 500"
+           data-img="montre6.jpg">
+        <div class="watch-card-image">
+          <img src="montre6.jpg"
+               alt="Audemars Piguet Royal Oak" class="watch-photo"/>
+        </div>
+        <div class="watch-card-body">
+          <div class="watch-brand">Audemars Piguet</div>
+          <div class="watch-ref">REF. 15400ST.OO.1220ST.01</div>
+          <div class="watch-model">Royal Oak · Grande Tapisserie</div>
+          <div class="watch-meta">
+            <span class="watch-condition">Excellent</span>
+            <span class="watch-price">€ 28 500</span>
+          </div>
+          <div class="trusted-badge-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Chrono24 Trusted Seller
+          </div>
+          <button class="btn btn-cart btn-chrome" data-ref="15400ST.OO.1220ST.01">Ajouter au panier</button>
+        </div>
+      </div>
+
+    </div><!-- /collection-grid -->
+
+    <div class="collection-cta reveal">
+      <a href="collection.html" class="btn btn-outline" style="font-size:1rem;padding:14px 36px;">
+        Voir toute la collection
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     À PROPOS — SPLIT
+     ══════════════════════════════════════ -->
+<section class="about-section">
+  <div class="about-inner">
+    <div class="about-left">
+      <p class="about-label reveal">Notre histoire</p>
+      <h2 class="about-title reveal">30 Ans d'Expertise<br>Horlogère à Bruxelles</h2>
+      <p class="about-text reveal">Fondée en 1994 dans le cœur de Bruxelles, Demco Quartz s'est imposée comme la référence belge en matière de montres de luxe d'occasion. Notre passion pour la précision mécanique et notre expertise inégalée font de chaque transaction une expérience d'exception.</p>
+      <p class="about-text reveal">De notre boutique de Waterloo à notre présence en ligne, nous sélectionnons rigoureusement chaque pièce — Rolex, Omega, Patek Philippe, Cartier — pour garantir à nos clients une authenticité certifiée et une qualité irréprochable.</p>
+      <div class="about-stats reveal">
+        <div class="about-stat">
+          <div class="about-stat-number" data-target="30" data-suffix="+">30+</div>
+          <div class="about-stat-label">Années d'expertise</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number" data-target="500" data-suffix="+">500+</div>
+          <div class="about-stat-label">Montres vendues</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number" data-target="24" data-suffix=" mois">24 mois</div>
+          <div class="about-stat-label">De garantie</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number" data-target="100" data-suffix="%">100%</div>
+          <div class="about-stat-label">Authenticité certifiée</div>
+        </div>
+      </div>
+
+      <div class="about-highlights">
+        <div class="about-highlight reveal">
+          <div class="about-highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2E6DA4" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <span class="about-highlight-text">Garantie 24 mois sur chaque pièce</span>
+        </div>
+        <div class="about-highlight reveal" data-delay="100">
+          <div class="about-highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2E6DA4" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <span class="about-highlight-text">Expertise &amp; authenticité certifiée</span>
+        </div>
+        <div class="about-highlight reveal" data-delay="200">
+          <div class="about-highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2E6DA4" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="m16 8 6 3v5h-6"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <span class="about-highlight-text">Expédition DHL Express sécurisée</span>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;" class="reveal">
+        <a href="a-propos.html" class="btn btn-outline">Découvrir notre histoire</a>
+        <a href="https://www.chrono24.be" target="_blank" rel="noopener" class="trusted-badge footer-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2E6DA4" stroke-width="2.5" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+          </svg>
+          Chrono24 Trusted Seller
+        </a>
+      </div>
+    </div>
+    <div class="about-image-wrap reveal">
+        <img src="histoire.jpg" alt="Demco Quartz — Notre histoire" class="about-real-img"/>
+        <div class="about-image-overlay"></div>
+        <div class="about-image-caption">
+          <strong>Demco Quartz</strong>
+          <span>Bruxelles · Waterloo · Belgique</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SERVICES
+     ══════════════════════════════════════ -->
+<section class="services-section">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="section-header reveal">
+      <p class="section-label">Ce que nous offrons</p>
+      <h2 class="section-title">Nos Services</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal" data-delay="0">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#A8B4C0" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+        <h3 class="service-title">Expertise &amp; Authentification</h3>
+        <p class="service-desc">Chaque montre est inspectée par nos horlogers experts. Vérification du mouvement, du boîtier, de la référence et des documents d'origine. Zéro compromis sur l'authenticité.</p>
+      </div>
+      <div class="service-card reveal" data-delay="150">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#A8B4C0" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3 class="service-title">Garantie 24 Mois</h3>
+        <p class="service-desc">Toutes nos montres bénéficient d'une garantie maison de 24 mois couvrant le mouvement et les défauts de fonctionnement. Votre investissement est protégé.</p>
+      </div>
+      <div class="service-card reveal" data-delay="300">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#A8B4C0" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <h3 class="service-title">Expédition DHL Express</h3>
+        <p class="service-desc">Livraison sécurisée dans le monde entier via DHL Express. Chaque envoi est assuré, tracé et conditionné dans notre écrin de protection premium.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TÉMOIGNAGES
+     ══════════════════════════════════════ -->
+<section class="testimonials-section dot-grid">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div class="section-header reveal">
+      <p class="section-label">Ils nous font confiance</p>
+      <h2 class="section-title">Témoignages</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="testimonials-slider reveal">
+      <div class="testimonials-track">
+        <div class="testimonial-item">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonial-text">"Un service d'une qualité irréprochable. J'ai acquis une Rolex Submariner chez Demco Quartz et l'expérience était parfaite, de la communication à la livraison. La montre était exactement dans l'état décrit. Je recommande sans hésitation."</p>
+            <div class="testimonial-author">Pierre V.</div>
+            <div class="testimonial-location">Bruxelles, Belgique</div>
+          </div>
+        </div>
+        <div class="testimonial-item">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonial-text">"J'ai vendu ma Patek Philippe via Demco Quartz. Le processus était transparent, rapide et juste. L'expertise de l'équipe est impressionnante — ils connaissent chaque détail de chaque référence. Une maison sérieuse avec qui j'ai encore traité depuis."</p>
+            <div class="testimonial-author">Marie-Christine D.</div>
+            <div class="testimonial-location">Waterloo, Belgique</div>
+          </div>
+        </div>
+        <div class="testimonial-item">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonial-text">"Commande depuis Paris, livraison DHL en 24h. La montre était emballée avec un soin exceptionnel. Mais ce qui m'a le plus impressionné, c'est le certificat d'authenticité détaillé et le service après-vente réactif. Bravo à toute l'équipe."</p>
+            <div class="testimonial-author">Thomas R.</div>
+            <div class="testimonial-location">Paris, France</div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-dots">
+        <div class="slider-dot active"></div>
+        <div class="slider-dot"></div>
+        <div class="slider-dot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="margin-bottom:1rem;display:inline-flex;">
+          <img src="logo.jpg" class="logo-svg" alt="Demco Quartz"/>
+          <span class="logo-text">DEMCO QUARTZ</span>
+        </a>
+        <p class="footer-tagline">Spécialiste belge en montres de luxe d'occasion depuis 1994. Expertise, authenticité et passion au service de votre collection.</p>
+        <a href="https://www.chrono24.be" target="_blank" rel="noopener" class="trusted-badge footer-badge" style="margin-bottom:1rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2E6DA4" stroke-width="2.5" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+          </svg>
+          Chrono24 Trusted Seller
+        </a>
+        <div class="footer-social">
+          <a href="https://instagram.com/demcoquartz" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            @demcoquartz
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="collection.html">Collection</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Acheter / Vendre</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Marques</h4>
+        <ul class="footer-links">
+          <li><a href="collection.html">Rolex</a></li>
+          <li><a href="collection.html">Omega</a></li>
+          <li><a href="collection.html">Cartier</a></li>
+          <li><a href="collection.html">Patek Philippe</a></li>
+          <li><a href="collection.html">Breitling</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Contact</h4>
+        <div class="footer-contact">
+          <p><strong>Bruxelles</strong><a href="https://maps.google.com/?q=Rue+du+Marché+aux+Herbes+42,+1000+Bruxelles" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid rgba(184,148,106,0.3);">Rue du Marché aux Herbes 42</a><br>1000 Bruxelles</p>
+          <p><strong>Waterloo</strong><a href="https://maps.google.com/?q=Chaussée+de+Bruxelles+118,+1410+Waterloo" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid rgba(184,148,106,0.3);">Chaussée de Bruxelles 118</a><br>1410 Waterloo</p>
+          <p><strong>Email</strong>info@demcoquartz.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2024 DEMCO QUARTZ — Tous droits réservés</p>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Scripts ── -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
